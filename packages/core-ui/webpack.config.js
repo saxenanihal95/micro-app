@@ -30,4 +30,5 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
   },
+  devtool: "source-map",
 };
