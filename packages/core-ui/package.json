@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack serve --config webpack.config.js"
+    "start": "webpack serve --config webpack.config.js",
+    "build": "webpack --config ./webpack.config.js --mode production"
   },
   "dependencies": {
     "react": "^17.0.2",
