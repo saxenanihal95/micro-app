@@ -1,9 +1,15 @@
-import React from "react";
+import * as React from 'react';
 import ErrorBoundary from "./components/ErrorBoundry";
+// @ts-ignore
 const PcsUser = React.lazy(() => import("pcs_user/App"));
+// @ts-ignore
 const PcsAdmin = React.lazy(() => import("pcs_admin/App"));
 
-const App = ({ title }) => (
+interface AppProps {
+  title: string
+}
+
+const App: React.FC<AppProps> = ({ title }) => (
   <div>
     {title}
     <ErrorBoundary appName="Pcs User">
