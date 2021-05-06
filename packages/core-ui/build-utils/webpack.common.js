@@ -21,10 +21,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
-      name: "app1",
-      library: { type: "var", name: "app1" },
+      name: "core_ui",
+      library: { type: "var", name: "core_ui" },
       remotes: {
-        app2: "app2",
+        pcs_admin: "pcs_admin",
         pcs_user: "pcs_user"
       },
       shared: {
