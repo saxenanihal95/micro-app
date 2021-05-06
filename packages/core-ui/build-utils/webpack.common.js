@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const deps = require("../package.json").dependencies;
+const HotModuleReplacementPlugin = require('webpack').HotModuleReplacementPlugin;
  
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.ts'),
@@ -25,6 +26,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
       name: "core_ui",
       library: { type: "var", name: "core_ui" },
@@ -60,6 +62,7 @@ module.exports = {
   devServer: {
     port: 3000,
     contentBase: path.resolve(__dirname, '..', './dist'),
+    hot: true,
   },
 };
 

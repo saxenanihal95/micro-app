@@ -2,6 +2,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HotModuleReplacementPlugin = require("webpack").HotModuleReplacementPlugin;
 const deps = require("../package.json").dependencies;
 
 module.exports = {
@@ -25,6 +26,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
       name: "pcs_admin",
       library: { type: "var", name: "pcs_admin" },
@@ -62,5 +64,6 @@ module.exports = {
   devServer: {
     port: 3002,
     contentBase: path.resolve(__dirname, "..", "./dist"),
+    hot: true,
   },
 };

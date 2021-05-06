@@ -9,3 +9,6 @@ ReactDOM.render(
   <App title={title} />,
   document.getElementById('app')
 );
+
+// @ts-ignore
+module.hot.accept();

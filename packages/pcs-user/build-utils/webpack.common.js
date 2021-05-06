@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
+const HotModuleReplacementPlugin = require("webpack").HotModuleReplacementPlugin;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const deps = require("../package.json").dependencies;
 
@@ -25,6 +26,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
       name: "pcs_user",
       library: { type: "var", name: "pcs_user" },
@@ -62,5 +64,6 @@ module.exports = {
   devServer: {
     port: 3001,
     contentBase: path.resolve(__dirname, "..", "./dist"),
+    hot: true
   },
 };
