@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const deps = require("../package.json").dependencies;
 
 module.exports = {
-  entry: path.resolve(__dirname, "..", "./src/index.js"),
+  entry: path.resolve(__dirname, "..", "./src/index.ts"),
   module: {
     rules: [
       {
@@ -13,10 +13,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
     ],
   },
   resolve: {
-    extensions: ["*", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -30,12 +35,14 @@ module.exports = {
       shared: {
         ...deps,
         react: {
+          eager: true,
           import: "react", // the "react" package will be used a provided and fallback module
           shareKey: "react", // under this name the shared module will be placed in the share scope
           shareScope: "legacy", // share scope with this name will be used
           singleton: true, // only a single version of the shared module is allowed
         },
         "react-dom": {
+          eager: true,
           import: "react-dom", // the "react" package will be used a provided and fallback module
           shareKey: "react-dom", // under this name the shared module will be placed in the share scope
           shareScope: "legacy", // share scope with this name will be used
