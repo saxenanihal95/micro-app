@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ErrorBoundary from "./components/ErrorBoundry";
 // @ts-ignore
-const PcsUser = React.lazy(() => import("pcs_user/App"));
+const App1 = React.lazy(() => import("app1/App"));
 // @ts-ignore
-const PcsAdmin = React.lazy(() => import("pcs_admin/App"));
+const App2 = React.lazy(() => import("app2/App"));
 
 interface AppProps {
   title: string
@@ -12,14 +12,14 @@ interface AppProps {
 const App: React.FC<AppProps> = ({ title }) => (
   <div>
     {title}
-    <ErrorBoundary appName="Pcs User">
-      <React.Suspense fallback="Loading PcsUser">
-        <PcsUser />
+    <ErrorBoundary appName="App 1">
+      <React.Suspense fallback="Loading App1">
+        <App1 />
       </React.Suspense>
     </ErrorBoundary>
-    <ErrorBoundary appName="Pcs Admin">
-      <React.Suspense fallback="Loading PcsAdmin">
-        <PcsAdmin />
+    <ErrorBoundary appName="App 2">
+      <React.Suspense fallback="Loading App2">
+        <App2 />
       </React.Suspense>
     </ErrorBoundary>
   </div>

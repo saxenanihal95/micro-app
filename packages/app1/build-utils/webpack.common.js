@@ -28,8 +28,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HotModuleReplacementPlugin(),
     new ModuleFederationPlugin({
-      name: "pcs_admin",
-      library: { type: "var", name: "pcs_admin" },
+      name: "app1",
+      library: { type: "var", name: "app1" },
       filename: "remoteEntry.js",
       exposes: {
         "./App": "./src/App",

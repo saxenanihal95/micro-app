@@ -31,8 +31,8 @@ module.exports = {
       name: "core_ui",
       library: { type: "var", name: "core_ui" },
       remotes: {
-        pcs_admin: "pcs_admin",
-        pcs_user: "pcs_user"
+        app1: "app1",
+        app2: "app2"
       },
       shared: {
         ...deps,
@@ -51,7 +51,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Hello Webpack bundled JavaScript Project',
       template: path.resolve(__dirname, '..', './src/index.html'),
-      pcsUserRemoteEntry: getRemoteEntryUrl(3001),
+      app1RemoteEntry: getRemoteEntryUrl(3001),
       app2RemoteEntry: getRemoteEntryUrl(3002),
     })
   ],

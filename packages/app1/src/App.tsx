@@ -1,5 +1,5 @@
 import * as React from "react";
 
-const App = () => <div>Pcs User</div>;
+const App = () => <div>App 1</div>;
 
 export default App;
